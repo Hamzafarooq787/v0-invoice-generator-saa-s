@@ -14,7 +14,6 @@ import {
   calculateTotal,
 } from "@/lib/invoice"
 import type { InvoiceFormData, LineItem } from "@/lib/types"
-import GeneratePDFButton from "@/components/GeneratePDFButton"
 
 export default function InvoiceGenerator() {
   const [invoiceData, setInvoiceData] = useState<InvoiceFormData>(getDefaultInvoiceData())
@@ -157,16 +156,8 @@ export default function InvoiceGenerator() {
         </div>
 
         {/* Preview Section */}
-        <div className="lg:sticky lg:top-24 lg:self-start space-y-4">
-          {/* The area we capture as PDF */}
-          <div id="invoice-preview">
-            <InvoicePreview data={invoiceData} />
-          </div>
-
-          {/* New working Download PDF button */}
-          <div className="flex justify-end">
-            <GeneratePDFButton />
-          </div>
+        <div id="invoice-preview" className="lg:sticky lg:top-24 lg:self-start">
+          <InvoicePreview data={invoiceData} />
         </div>
       </div>
     </div>
