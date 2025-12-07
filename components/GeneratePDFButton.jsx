@@ -1,52 +1,60 @@
 "use client";
 
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
-
 export default function GeneratePDFButton() {
-  const downloadPDF = async () => {
-    const invoiceElement = document.getElementById("invoice-preview");
+  const handlePrint = () => {
+    if (typeof window === "undefined") return;
 
+    const invoiceElement = document.getElementById("invoice-preview");
     if (!invoiceElement) {
       console.error("Invoice preview element not found.");
       return;
     }
 
-    // Wait for fonts and layout to settle
-    await new Promise((resolve) => setTimeout(resolve, 200));
+    const printContents = invoiceElement.innerHTML;
+    const printWindow = window.open("", "_blank", "width=900,height=1000");
 
-    // Force Tailwind theme values to px/rgb (avoid unsupported color spaces)
-    invoiceElement.style.colorScheme = "light";
+    if (!printWindow) {
+      console.error("Unable to open print window.");
+      return;
+    }
 
-    const canvas = await html2canvas(invoiceElement, {
-      scale: 2,
-      useCORS: true,
-      logging: false,
-      backgroundColor: "#ffffff",
-      onclone: (clonedDoc) => {
-        const clone = clonedDoc.getElementById("invoice-preview");
-        clone.style.background = "#ffffff"; // avoid transparent background
-        clone.style.boxShadow = "none"; // shadows break PDF
-      },
-    });
-
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF("p", "mm", "a4");
-    const imgProps = pdf.getImageProperties(imgData);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("invoice.pdf");
+    printWindow.document.open();
+    printWindow.document.write(`
+      <!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <title>Invoice</title>
+          <style>
+            body {
+              margin: 0;
+              padding: 24px;
+              font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+              background: #ffffff;
+            }
+            * {
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+              color-adjust: exact !important;
+            }
+          </style>
+        </head>
+        <body>
+          ${printContents}
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
   };
 
   return (
     <button
-      onClick={downloadPDF}
+      onClick={handlePrint}
       className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
     >
       Download PDF
     </button>
   );
 }
-
