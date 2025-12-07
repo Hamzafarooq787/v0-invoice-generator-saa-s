@@ -4,14 +4,14 @@ import { ArrowRight } from "lucide-react"
 
 export function LandingCta() {
   return (
-    <section className="py-20 md:py-32 bg-primary text-primary-foreground">
-      <div className="container max-w-4xl text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-balance">Ready to simplify your invoicing?</h2>
-        <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
+    <section className="bg-primary py-16 text-primary-foreground md:py-24 lg:py-32">
+      <div className="mx-auto max-w-[1280px] px-6 text-center">
+        <h2 className="text-balance text-2xl font-bold md:text-3xl lg:text-4xl">Ready to simplify your invoicing?</h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
           Create your first invoice in under 2 minutes. No signup required, no credit card needed.
         </p>
-        <div className="mt-8">
-          <Button asChild size="lg" variant="secondary" className="text-base px-8">
+        <div className="mt-10">
+          <Button asChild size="lg" variant="secondary" className="rounded-lg px-8 text-base">
             <Link href="/invoice">
               Start Creating Invoices
               <ArrowRight className="ml-2 h-4 w-4" />

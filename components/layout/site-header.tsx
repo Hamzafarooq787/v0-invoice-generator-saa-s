@@ -19,8 +19,8 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto flex h-16 items-center justify-between px-4">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
             <FileText className="h-5 w-5 text-primary-foreground" />
@@ -29,7 +29,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-10 md:flex">
           <Link
             href="/invoice"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -52,15 +52,15 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 md:flex">
           {user ? (
-            <Button asChild>
+            <Button asChild className="rounded-lg px-5 py-2.5">
               <Link href="/dashboard">Dashboard</Link>
             </Button>
           ) : (
             <>
-              <Button variant="ghost" asChild>
+              <Button variant="ghost" asChild className="rounded-lg px-5 py-2.5">
                 <Link href="/auth/signin">Sign In</Link>
               </Button>
-              <Button asChild>
+              <Button asChild className="rounded-lg px-5 py-2.5">
                 <Link href="/auth/signup">Get Started</Link>
               </Button>
             </>
@@ -68,7 +68,7 @@ export function SiteHeader() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
+        <button className="p-2 md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
@@ -76,7 +76,7 @@ export function SiteHeader() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="border-t border-border bg-background md:hidden">
-          <div className="container mx-auto flex flex-col gap-4 px-4 py-4">
+          <div className="mx-auto flex max-w-[1280px] flex-col gap-4 px-6 py-6">
             <Link
               href="/invoice"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -98,17 +98,17 @@ export function SiteHeader() {
             >
               Contact
             </Link>
-            <div className="flex flex-col gap-2 pt-2">
+            <div className="flex flex-col gap-3 pt-4">
               {user ? (
-                <Button asChild>
+                <Button asChild className="rounded-lg">
                   <Link href="/dashboard">Dashboard</Link>
                 </Button>
               ) : (
                 <>
-                  <Button variant="outline" asChild>
+                  <Button variant="outline" asChild className="rounded-lg bg-transparent">
                     <Link href="/auth/signin">Sign In</Link>
                   </Button>
-                  <Button asChild>
+                  <Button asChild className="rounded-lg">
                     <Link href="/auth/signup">Get Started</Link>
                   </Button>
                 </>

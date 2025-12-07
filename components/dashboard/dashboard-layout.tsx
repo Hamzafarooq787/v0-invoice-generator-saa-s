@@ -69,7 +69,7 @@ export default function DashboardLayout({ children, profile }: DashboardLayoutPr
         )}
       >
         {/* Logo */}
-        <div className="flex h-16 items-center justify-between border-b border-border px-4">
+        <div className="flex h-16 items-center justify-between border-b border-border px-6">
           <Link href="/" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
               <FileText className="h-5 w-5 text-primary-foreground" />
@@ -92,7 +92,7 @@ export default function DashboardLayout({ children, profile }: DashboardLayoutPr
                 key={item.name}
                 href={isLocked ? "/dashboard?upgrade=true" : item.href}
                 className={cn(
-                  "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                  "flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors",
                   isActive
                     ? "bg-primary/10 text-primary"
                     : "text-muted-foreground hover:bg-muted hover:text-foreground",
@@ -110,7 +110,7 @@ export default function DashboardLayout({ children, profile }: DashboardLayoutPr
         {/* Plan Badge */}
         <div className="border-t border-border p-4">
           {isPro ? (
-            <div className="rounded-lg bg-primary/10 p-3">
+            <div className="rounded-xl bg-primary/10 p-4">
               <div className="flex items-center gap-2 text-sm font-medium text-primary">
                 <Crown className="h-4 w-4" />
                 Pro Plan
@@ -118,10 +118,10 @@ export default function DashboardLayout({ children, profile }: DashboardLayoutPr
               <p className="mt-1 text-xs text-muted-foreground">Full access to all features</p>
             </div>
           ) : (
-            <div className="rounded-lg bg-muted p-3">
+            <div className="rounded-xl bg-muted p-4">
               <p className="text-sm font-medium text-foreground">Free Plan</p>
               <p className="mt-1 text-xs text-muted-foreground">Upgrade to unlock all features</p>
-              <Button size="sm" className="mt-2 w-full" asChild>
+              <Button size="sm" className="mt-3 w-full rounded-lg" asChild>
                 <Link href="/pricing">Upgrade to Pro</Link>
               </Button>
             </div>
@@ -132,13 +132,13 @@ export default function DashboardLayout({ children, profile }: DashboardLayoutPr
       {/* Main Content */}
       <div className="flex flex-1 flex-col">
         {/* Top Header */}
-        <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background px-4 lg:px-6">
-          <button className="lg:hidden" onClick={() => setSidebarOpen(true)}>
+        <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background px-6 shadow-sm">
+          <button className="p-2 lg:hidden" onClick={() => setSidebarOpen(true)}>
             <Menu className="h-6 w-6" />
           </button>
 
           <div className="flex items-center gap-4 lg:ml-auto">
-            <Button size="sm" className="gap-2" asChild>
+            <Button size="sm" className="gap-2 rounded-lg" asChild>
               <Link href="/invoice">
                 <Plus className="h-4 w-4" />
                 New Invoice
@@ -147,7 +147,7 @@ export default function DashboardLayout({ children, profile }: DashboardLayoutPr
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="gap-2">
+                <Button variant="ghost" className="gap-2 rounded-lg">
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-medium text-primary-foreground">
                     {(profile.full_name?.[0] || profile.company_name?.[0] || "U").toUpperCase()}
                   </div>
@@ -156,7 +156,7 @@ export default function DashboardLayout({ children, profile }: DashboardLayoutPr
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
-                <div className="px-2 py-1.5">
+                <div className="px-3 py-2">
                   <p className="text-sm font-medium text-foreground">{profile.full_name || "User"}</p>
                   <p className="text-xs text-muted-foreground">{profile.company_email || ""}</p>
                 </div>
@@ -186,7 +186,9 @@ export default function DashboardLayout({ children, profile }: DashboardLayoutPr
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 p-4 lg:p-6">{children}</main>
+        <main className="flex-1 p-6 lg:p-8">
+          <div className="mx-auto max-w-[1280px]">{children}</div>
+        </main>
       </div>
     </div>
   )

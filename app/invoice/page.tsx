@@ -32,7 +32,7 @@ export default function InvoicePage() {
           <InvoiceHero />
 
           <section id="generator" className="border-t border-border bg-muted/30 py-12 md:py-16">
-            <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-[1280px] px-6">
               <InvoiceGenerator />
             </div>
           </section>

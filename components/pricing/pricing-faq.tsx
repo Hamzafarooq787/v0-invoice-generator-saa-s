@@ -40,20 +40,22 @@ const faqs = [
 
 export function PricingFaq() {
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
-      <div className="container max-w-3xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold">Frequently asked questions</h2>
-          <p className="mt-2 text-muted-foreground">Everything you need to know about our pricing</p>
+    <section className="bg-muted/30 py-16 md:py-24">
+      <div className="mx-auto max-w-[1280px] px-6">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-12 text-center">
+            <h2 className="text-2xl font-bold md:text-3xl">Frequently asked questions</h2>
+            <p className="mt-3 text-muted-foreground">Everything you need to know about our pricing</p>
+          </div>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="text-left text-base">{faq.question}</AccordionTrigger>
+                <AccordionContent className="leading-relaxed text-muted-foreground">{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
       </div>
     </section>
   )

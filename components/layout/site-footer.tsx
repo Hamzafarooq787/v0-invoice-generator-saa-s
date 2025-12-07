@@ -4,8 +4,8 @@ import { FileText } from "lucide-react"
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-muted/30">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-4">
+      <div className="mx-auto max-w-[1280px] px-6 py-16">
+        <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
@@ -13,15 +13,15 @@ export function SiteFooter() {
               </div>
               <span className="text-xl font-semibold text-foreground">Airanko</span>
             </Link>
-            <p className="mt-4 max-w-md text-sm text-muted-foreground">
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
               Create professional invoices in minutes. Free to use, no signup required. Upgrade to Pro for advanced
               features like payment tracking and analytics.
             </p>
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-foreground">Product</h3>
-            <ul className="space-y-3">
+            <h3 className="mb-5 text-sm font-semibold text-foreground">Product</h3>
+            <ul className="space-y-4">
               <li>
                 <Link href="/invoice" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                   Invoice Generator
@@ -44,8 +44,8 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-foreground">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="mb-5 text-sm font-semibold text-foreground">Company</h3>
+            <ul className="space-y-4">
               <li>
                 <Link href="/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                   About Airanko
@@ -70,7 +70,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border pt-8 text-center">
+        <div className="mt-16 border-t border-border pt-8 text-center">
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Airanko. All rights reserved.</p>
         </div>
       </div>

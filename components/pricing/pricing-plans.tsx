@@ -50,42 +50,42 @@ const plans = [
 export function PricingPlans() {
   return (
     <section className="py-16 md:py-24">
-      <div className="container max-w-5xl">
-        <div className="grid gap-8 md:grid-cols-2">
+      <div className="mx-auto max-w-[1280px] px-6">
+        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
           {plans.map((plan) => (
             <Card
               key={plan.name}
-              className={`relative flex flex-col ${
-                plan.popular ? "border-primary shadow-lg scale-105" : "border-border"
+              className={`relative flex flex-col rounded-xl shadow-sm ${
+                plan.popular ? "scale-105 border-primary shadow-md" : "border-border"
               }`}
             >
               {plan.popular && <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">Most Popular</Badge>}
-              <CardHeader className="text-center pb-2">
+              <CardHeader className="pb-2 text-center">
                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                <CardDescription>{plan.description}</CardDescription>
+                <CardDescription className="text-sm">{plan.description}</CardDescription>
               </CardHeader>
-              <CardContent className="flex-1">
-                <div className="text-center mb-6">
+              <CardContent className="flex-1 p-6">
+                <div className="mb-8 text-center">
                   <span className="text-5xl font-bold">{plan.price}</span>
                   <span className="text-muted-foreground">{plan.period}</span>
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm">{feature}</span>
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <span className="text-sm leading-relaxed">{feature}</span>
                     </li>
                   ))}
                   {plan.limitations.map((limitation) => (
                     <li key={limitation} className="flex items-start gap-3 text-muted-foreground">
-                      <span className="h-5 w-5 shrink-0 mt-0.5 text-center">—</span>
-                      <span className="text-sm">{limitation}</span>
+                      <span className="mt-0.5 h-5 w-5 shrink-0 text-center">—</span>
+                      <span className="text-sm leading-relaxed">{limitation}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter>
-                <Button asChild className="w-full" variant={plan.popular ? "default" : "outline"} size="lg">
+              <CardFooter className="p-6 pt-0">
+                <Button asChild className="w-full rounded-lg" variant={plan.popular ? "default" : "outline"} size="lg">
                   <Link href={plan.href}>{plan.cta}</Link>
                 </Button>
               </CardFooter>
@@ -95,7 +95,7 @@ export function PricingPlans() {
 
         <div className="mt-12 text-center text-sm text-muted-foreground">
           <p>All plans include SSL encryption and GDPR compliance.</p>
-          <p className="mt-1">
+          <p className="mt-2">
             Need a custom plan for your team?{" "}
             <Link href="/contact" className="text-primary hover:underline">
               Contact us

@@ -23,15 +23,15 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
   return (
     <div className="space-y-6">
       {/* Company Information */}
-      <Card>
+      <Card className="rounded-xl border-border shadow-sm">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg">
             <Building2 className="h-5 w-5 text-primary" />
             Your Company
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid gap-4 sm:grid-cols-2">
+        <CardContent className="space-y-5">
+          <div className="grid gap-5 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="companyName">Company Name</Label>
               <Input
@@ -39,6 +39,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                 placeholder="Your Company Ltd."
                 value={data.companyName}
                 onChange={(e) => onUpdate({ companyName: e.target.value })}
+                className="rounded-lg"
               />
             </div>
             <div className="space-y-2">
@@ -49,10 +50,11 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                 placeholder="hello@company.com"
                 value={data.companyEmail}
                 onChange={(e) => onUpdate({ companyEmail: e.target.value })}
+                className="rounded-lg"
               />
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="companyPhone">Phone</Label>
               <Input
@@ -60,6 +62,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                 placeholder="+1 (555) 123-4567"
                 value={data.companyPhone}
                 onChange={(e) => onUpdate({ companyPhone: e.target.value })}
+                className="rounded-lg"
               />
             </div>
             <div className="space-y-2">
@@ -69,6 +72,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                 placeholder="https://..."
                 value={data.companyLogo}
                 onChange={(e) => onUpdate({ companyLogo: e.target.value })}
+                className="rounded-lg"
               />
             </div>
           </div>
@@ -80,21 +84,22 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
               value={data.companyAddress}
               onChange={(e) => onUpdate({ companyAddress: e.target.value })}
               rows={2}
+              className="rounded-lg"
             />
           </div>
         </CardContent>
       </Card>
 
       {/* Client Information */}
-      <Card>
+      <Card className="rounded-xl border-border shadow-sm">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg">
             <User className="h-5 w-5 text-primary" />
             Client Information
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid gap-4 sm:grid-cols-2">
+        <CardContent className="space-y-5">
+          <div className="grid gap-5 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="clientName">Client Name</Label>
               <Input
@@ -102,6 +107,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                 placeholder="John Doe"
                 value={data.clientName}
                 onChange={(e) => onUpdate({ clientName: e.target.value })}
+                className="rounded-lg"
               />
             </div>
             <div className="space-y-2">
@@ -111,6 +117,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                 placeholder="Client Company Inc."
                 value={data.clientCompany}
                 onChange={(e) => onUpdate({ clientCompany: e.target.value })}
+                className="rounded-lg"
               />
             </div>
           </div>
@@ -122,6 +129,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
               placeholder="client@company.com"
               value={data.clientEmail}
               onChange={(e) => onUpdate({ clientEmail: e.target.value })}
+              className="rounded-lg"
             />
           </div>
           <div className="space-y-2">
@@ -132,33 +140,35 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
               value={data.clientAddress}
               onChange={(e) => onUpdate({ clientAddress: e.target.value })}
               rows={2}
+              className="rounded-lg"
             />
           </div>
         </CardContent>
       </Card>
 
       {/* Invoice Details */}
-      <Card>
+      <Card className="rounded-xl border-border shadow-sm">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg">
             <FileText className="h-5 w-5 text-primary" />
             Invoice Details
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid gap-4 sm:grid-cols-2">
+        <CardContent className="space-y-5">
+          <div className="grid gap-5 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="invoiceNumber">Invoice Number</Label>
               <Input
                 id="invoiceNumber"
                 value={data.invoiceNumber}
                 onChange={(e) => onUpdate({ invoiceNumber: e.target.value })}
+                className="rounded-lg"
               />
             </div>
             <div className="space-y-2">
               <Label htmlFor="currency">Currency</Label>
               <Select value={data.currency} onValueChange={(value) => onUpdate({ currency: value })}>
-                <SelectTrigger id="currency">
+                <SelectTrigger id="currency" className="rounded-lg">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -171,7 +181,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
               </Select>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="invoiceDate">Invoice Date</Label>
               <Input
@@ -179,6 +189,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                 type="date"
                 value={data.invoiceDate}
                 onChange={(e) => onUpdate({ invoiceDate: e.target.value })}
+                className="rounded-lg"
               />
             </div>
             <div className="space-y-2">
@@ -188,6 +199,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                 type="date"
                 value={data.dueDate}
                 onChange={(e) => onUpdate({ dueDate: e.target.value })}
+                className="rounded-lg"
               />
             </div>
           </div>
@@ -195,13 +207,13 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
       </Card>
 
       {/* Line Items */}
-      <Card>
+      <Card className="rounded-xl border-border shadow-sm">
         <CardHeader className="pb-4">
           <CardTitle className="text-lg">Line Items</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-5">
           {data.items.map((item, index) => (
-            <div key={item.id} className="space-y-4 rounded-lg border border-border p-4">
+            <div key={item.id} className="space-y-4 rounded-xl border border-border bg-muted/30 p-5">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-muted-foreground">Item {index + 1}</span>
                 {data.items.length > 1 && (
@@ -209,7 +221,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                     variant="ghost"
                     size="sm"
                     onClick={() => onRemoveItem(index)}
-                    className="h-8 w-8 p-0 text-destructive hover:text-destructive"
+                    className="h-8 w-8 rounded-lg p-0 text-destructive hover:text-destructive"
                   >
                     <Trash2 className="h-4 w-4" />
                     <span className="sr-only">Remove item</span>
@@ -223,6 +235,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                     placeholder="Product or Service"
                     value={item.name}
                     onChange={(e) => onUpdateItem(index, { name: e.target.value })}
+                    className="rounded-lg"
                   />
                 </div>
                 <div className="space-y-2">
@@ -231,6 +244,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                     placeholder="Brief description"
                     value={item.description}
                     onChange={(e) => onUpdateItem(index, { description: e.target.value })}
+                    className="rounded-lg"
                   />
                 </div>
               </div>
@@ -243,6 +257,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                     step="0.01"
                     value={item.quantity}
                     onChange={(e) => onUpdateItem(index, { quantity: Number.parseFloat(e.target.value) || 0 })}
+                    className="rounded-lg"
                   />
                 </div>
                 <div className="space-y-2">
@@ -253,6 +268,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                     step="0.01"
                     value={item.unitPrice}
                     onChange={(e) => onUpdateItem(index, { unitPrice: Number.parseFloat(e.target.value) || 0 })}
+                    className="rounded-lg"
                   />
                 </div>
                 <div className="space-y-2">
@@ -269,13 +285,20 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                       </Tooltip>
                     </TooltipProvider>
                   </Label>
-                  <Input type="number" min="0" step="0.01" value={item.taxRate} disabled className="bg-muted" />
+                  <Input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    value={item.taxRate}
+                    disabled
+                    className="rounded-lg bg-muted"
+                  />
                 </div>
               </div>
             </div>
           ))}
 
-          <Button variant="outline" onClick={onAddItem} className="w-full gap-2 bg-transparent">
+          <Button variant="outline" onClick={onAddItem} className="w-full gap-2 rounded-lg bg-transparent">
             <Plus className="h-4 w-4" />
             Add Line Item
           </Button>
@@ -283,12 +306,12 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
       </Card>
 
       {/* Summary */}
-      <Card>
+      <Card className="rounded-xl border-border shadow-sm">
         <CardHeader className="pb-4">
           <CardTitle className="text-lg">Summary</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid gap-4 sm:grid-cols-3">
+        <CardContent className="space-y-5">
+          <div className="grid gap-5 sm:grid-cols-3">
             <div className="space-y-2">
               <Label className="flex items-center gap-1">
                 Tax Rate (%)
@@ -303,7 +326,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                   </Tooltip>
                 </TooltipProvider>
               </Label>
-              <Input type="number" min="0" step="0.01" value={data.taxRate} disabled className="bg-muted" />
+              <Input type="number" min="0" step="0.01" value={data.taxRate} disabled className="rounded-lg bg-muted" />
             </div>
             <div className="space-y-2">
               <Label className="flex items-center gap-1">
@@ -319,7 +342,14 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                   </Tooltip>
                 </TooltipProvider>
               </Label>
-              <Input type="number" min="0" step="0.01" value={data.discountRate} disabled className="bg-muted" />
+              <Input
+                type="number"
+                min="0"
+                step="0.01"
+                value={data.discountRate}
+                disabled
+                className="rounded-lg bg-muted"
+              />
             </div>
             <div className="space-y-2">
               <Label className="flex items-center gap-1">
@@ -335,18 +365,25 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
                   </Tooltip>
                 </TooltipProvider>
               </Label>
-              <Input type="number" min="0" step="0.01" value={data.shippingAmount} disabled className="bg-muted" />
+              <Input
+                type="number"
+                min="0"
+                step="0.01"
+                value={data.shippingAmount}
+                disabled
+                className="rounded-lg bg-muted"
+              />
             </div>
           </div>
         </CardContent>
       </Card>
 
       {/* Notes & Terms */}
-      <Card>
+      <Card className="rounded-xl border-border shadow-sm">
         <CardHeader className="pb-4">
           <CardTitle className="text-lg">Notes & Terms</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-5">
           <div className="space-y-2">
             <Label htmlFor="notes">Notes</Label>
             <Textarea
@@ -355,6 +392,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
               value={data.notes}
               onChange={(e) => onUpdate({ notes: e.target.value })}
               rows={3}
+              className="rounded-lg"
             />
           </div>
           <div className="space-y-2">
@@ -365,6 +403,7 @@ export default function InvoiceForm({ data, onUpdate, onUpdateItem, onAddItem, o
               value={data.terms}
               onChange={(e) => onUpdate({ terms: e.target.value })}
               rows={3}
+              className="rounded-lg"
             />
           </div>
         </CardContent>

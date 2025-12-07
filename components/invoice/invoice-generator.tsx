@@ -113,8 +113,8 @@ export default function InvoiceGenerator() {
 
   return (
     <div className="mx-auto max-w-7xl">
-      <div className="mb-8 text-center">
-        <h2 className="mb-2 text-2xl font-bold text-foreground md:text-3xl">Create Your Invoice</h2>
+      <div className="mb-10 text-center">
+        <h2 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">Create Your Invoice</h2>
         <p className="text-muted-foreground">
           Fill in your details, choose a template, and download your professional invoice
         </p>
@@ -126,13 +126,17 @@ export default function InvoiceGenerator() {
         onSelect={(template) => updateInvoiceData({ template })}
       />
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-2">
+      <div className="mt-10 grid gap-8 lg:grid-cols-2">
         {/* Form Section */}
         <div className="space-y-6">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="form">Invoice Details</TabsTrigger>
-              <TabsTrigger value="ai">AI Assistant</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 rounded-lg">
+              <TabsTrigger value="form" className="rounded-lg">
+                Invoice Details
+              </TabsTrigger>
+              <TabsTrigger value="ai" className="rounded-lg">
+                AI Assistant
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="form" className="mt-6">
