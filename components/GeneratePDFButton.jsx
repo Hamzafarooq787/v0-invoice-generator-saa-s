@@ -3,9 +3,6 @@
 export default function GeneratePDFButton() {
   const handlePrint = () => {
     if (typeof window === "undefined") return;
-
-    // Trigger browser print dialog; print styles will make sure
-    // only the invoice preview is visible on the PDF.
     window.print();
   };
 
