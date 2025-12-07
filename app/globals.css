@@ -126,41 +126,30 @@
   }
 }
 
-/* Print styles: only show the invoice preview as PDF */
+/* -------------------------------------------------
+   PRINT STYLES
+   ------------------------------------------------- */
+
+/* Anything with these classes will NOT appear in the PDF */
 @media print {
-  @page {
-    size: A4;
-    margin: 12mm;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-  }
-
-  /* Hide everything on the page */
-  body * {
+  .no-print,
+  .print-hidden {
     display: none !important;
   }
 
-  /* Show ONLY the invoice preview area */
-  #invoice-preview,
-  #invoice-preview * {
-    display: block !important;
-  }
-
-  /* Layout for the invoice on the printed page */
+  /* Invoice preview area formatting */
   #invoice-preview {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    padding: 16px;
     box-shadow: none !important;
     border-radius: 0 !important;
+    background: #ffffff !important;
   }
 
-  /* Elements we don't want in the PDF (e.g. header with Preview/Save) */
-  .print-hidden {
-    display: none !important;
+  #invoice-preview * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
