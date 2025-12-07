@@ -1,0 +1,47 @@
+export const pricingPlans = [
+  {
+    id: "free",
+    name: "Free",
+    price: 0,
+    period: null,
+    description: "Perfect for occasional invoicing needs",
+    features: [
+      "Create unlimited invoices",
+      "Download PDF invoices",
+      "3 professional templates",
+      "Add company logo",
+      "Basic AI suggestions",
+    ],
+    limitations: ["No invoice saving", "No payment tracking", "No client management", "Manual calculations only"],
+    cta: "Get Started Free",
+    ctaLink: "/invoice",
+    highlighted: false,
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    price: 10,
+    period: "month",
+    description: "For growing businesses that need more",
+    features: [
+      "Everything in Free, plus:",
+      "Save unlimited invoices",
+      "Full invoice history",
+      "Client management",
+      "Payment tracking",
+      "Auto tax & discount calculations",
+      "Email invoices directly",
+      "Dashboard with analytics",
+      "Export to CSV/Excel",
+      "All premium templates",
+      "Unlimited AI assistance",
+      "Priority support",
+    ],
+    limitations: [],
+    cta: "Start 14-Day Free Trial",
+    ctaLink: "/auth/signup?plan=pro",
+    highlighted: true,
+  },
+]
+
+export type PricingPlan = (typeof pricingPlans)[number]
