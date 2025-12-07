@@ -124,4 +124,37 @@
   body {
     @apply bg-background text-foreground;
   }
+
+
+
+  /* Print styles: only show invoice preview as PDF */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+
+  /* Hide everything by default */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only the invoice preview area */
+  #invoice-preview,
+  #invoice-preview * {
+    visibility: visible;
+  }
+
+  /* Position invoice preview to fill the printable page */
+  #invoice-preview {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 24px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
 }
